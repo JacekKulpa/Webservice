@@ -25,3 +25,7 @@ nbdist/
 /.mvn/
 /mvnw
 /mvnw.cmd
+!/.idea/
+!/.mvn/
+!/target/
+!/webservice.iml
