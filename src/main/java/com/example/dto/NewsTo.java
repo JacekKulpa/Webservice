@@ -16,6 +16,7 @@ public class NewsTo {
     @NotBlank
     private String text;
     private Date date;
+    private Integer result;
     @NotNull
     private List<CategoryTo> categories;
     private List<VoteTo> votes;

@@ -18,6 +18,7 @@ public class Vote implements Serializable {
     @Column(name = "id_vote")
     private Long id;
     @NotNull
+    @Enumerated(EnumType.STRING)
     private VoteType voteType;
 
     public enum VoteType {

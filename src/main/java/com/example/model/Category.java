@@ -16,6 +16,7 @@ public class Category implements Serializable {
     @Column(name = "id_category")
     private Long id;
     @NotNull
+    @Enumerated(EnumType.STRING)
     private CategoryType categoryType;
     @ManyToMany(mappedBy = "categories")
     private List<News> news;

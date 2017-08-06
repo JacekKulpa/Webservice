@@ -29,3 +29,5 @@ nbdist/
 !/.mvn/
 !/target/
 !/webservice.iml
+/.idea/
+/webservice.iml

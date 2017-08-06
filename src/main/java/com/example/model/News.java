@@ -24,13 +24,14 @@ public class News implements Serializable {
     @NotBlank
     private String text;
     private Date date;
+    private Integer result;
     @OneToMany
     @JoinColumn(name = "news_id", referencedColumnName = "id_news")
     private List<Vote> votes;
     @NotNull
     @ManyToMany
     @JoinTable(name = "news_categories",
-            joinColumns = {@JoinColumn(name = "news_id", referencedColumnName = "if_news")},
+            joinColumns = {@JoinColumn(name = "news_id", referencedColumnName = "id_news")},
             inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "id_category")})
     private List<Category> categories;
 }
