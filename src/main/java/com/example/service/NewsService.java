@@ -5,9 +5,10 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface NewsService {
+public interface NewsService extends GenericService<NewsTo> {
 
-    ResponseEntity<Void> createNews(NewsTo news);
+    @Override
+    ResponseEntity<Void> create(NewsTo object);
 
     ResponseEntity<NewsTo> getNewsById(Long id);
 
@@ -15,7 +16,9 @@ public interface NewsService {
 
     ResponseEntity<List<NewsTo>> getNewsList();
 
-    ResponseEntity<Void> updateNews(NewsTo news);
+    @Override
+    ResponseEntity<Void> update(NewsTo object);
 
-    ResponseEntity<Void> deleteNews(NewsTo news);
+    @Override
+    ResponseEntity<Void> delete(NewsTo object);
 }

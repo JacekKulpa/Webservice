@@ -23,7 +23,7 @@ public class NewsController {
     @PostMapping
     public ResponseEntity<Void> createNews(@RequestBody NewsTo news) {
 
-        return newsService.createNews(news);
+        return newsService.create(news);
     }
 
     @GetMapping(path = "/{id}")
@@ -47,12 +47,12 @@ public class NewsController {
     @PutMapping
     public ResponseEntity<Void> updateNews(@RequestBody NewsTo news) {
 
-        return newsService.updateNews(news);
+        return newsService.update(news);
     }
 
     @DeleteMapping
     public ResponseEntity<Void> deleteNews(@RequestBody NewsTo news) {
 
-        return newsService.deleteNews(news);
+        return newsService.delete(news);
     }
 }

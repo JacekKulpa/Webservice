@@ -5,9 +5,10 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends GenericService<UserTo> {
 
-    ResponseEntity<Void> createUser(UserTo user);
+    @Override
+    ResponseEntity<Void> create(UserTo object);
 
     ResponseEntity<UserTo> getUserById(Long id);
 
@@ -15,7 +16,9 @@ public interface UserService {
 
     ResponseEntity<List<UserTo>> getUserList();
 
-    ResponseEntity<Void> updateUser(UserTo user);
+    @Override
+    ResponseEntity<Void> update(UserTo object);
 
-    ResponseEntity<Void> deleteUser(UserTo user);
+    @Override
+    ResponseEntity<Void> delete(UserTo object);
 }

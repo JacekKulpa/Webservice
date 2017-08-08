@@ -2,24 +2,21 @@ package com.example.dao;
 
 import com.example.model.News;
 
+import javax.persistence.PersistenceException;
 import java.util.List;
 import java.util.Optional;
 
-public interface NewsDAO extends GenericDAO<News> {
+public interface NewsDAO {
 
-    @Override
-    Optional<News> create(News object);
+    Optional<News> create(News object) throws PersistenceException;
 
-    @Override
     Optional<News> readById(Long id);
 
     Optional<News> readByTitle(String title);
 
     Optional<List<News>> readAll();
 
-    @Override
-    Optional<News> update(News object);
+    Optional<News> update(News object) throws PersistenceException;
 
-    @Override
     boolean delete(News object);
 }

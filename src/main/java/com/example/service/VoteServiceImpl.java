@@ -1,8 +1,8 @@
 package com.example.service;
 
-import com.example.dao.VoteCRUD;
 import com.example.dao.VoteDAO;
 import com.example.dto.VoteTo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -11,22 +11,23 @@ public class VoteServiceImpl implements VoteService {
 
     private VoteDAO voteDAO;
 
-    public VoteServiceImpl() {
-        voteDAO = new VoteCRUD(this);
+    @Autowired
+    public VoteServiceImpl(VoteDAO voteDAO) {
+        this.voteDAO = voteDAO;
     }
 
     @Override
-    public ResponseEntity<Void> createVote(VoteTo vote) {
+    public ResponseEntity<Void> create(VoteTo vote) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Void> updateVote(VoteTo vote) {
+    public ResponseEntity<Void> update(VoteTo vote) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Void> deleteVote(VoteTo vote) {
+    public ResponseEntity<Void> delete(VoteTo vote) {
         return null;
     }
 }

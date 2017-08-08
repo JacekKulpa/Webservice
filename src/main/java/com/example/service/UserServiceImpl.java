@@ -1,6 +1,7 @@
 package com.example.service;
 
-import com.example.dao.UserDAO;
+import com.example.dao.DAOQualifier;
+import com.example.dao.GenericDAO;
 import com.example.dto.UserTo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,15 +12,18 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserDAO userDAO;
+    private GenericDAO userGenericDAO;
+    private GenericDAO uDetailsGenericDAO;
 
     @Autowired
-    public UserServiceImpl(UserDAO userDAO) {
-        this.userDAO = userDAO;
+    public UserServiceImpl(@DAOQualifier(type = DAOQualifier.QualifierType.USER) GenericDAO userGenericDAO,
+                           @DAOQualifier(type = DAOQualifier.QualifierType.USER_DETAILS) GenericDAO uDetailsGenericDAO) {
+        this.userGenericDAO = userGenericDAO;
+        this.uDetailsGenericDAO = uDetailsGenericDAO;
     }
 
     @Override
-    public ResponseEntity<Void> createUser(UserTo user) {
+    public ResponseEntity<Void> create(UserTo user) {
         return null;
     }
 
@@ -39,12 +43,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseEntity<Void> updateUser(UserTo user) {
+    public ResponseEntity<Void> update(UserTo user) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Void> deleteUser(UserTo user) {
+    public ResponseEntity<Void> delete(UserTo user) {
         return null;
     }
 }

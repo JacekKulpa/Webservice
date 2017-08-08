@@ -21,18 +21,18 @@ public class VoteController {
     @PostMapping
     ResponseEntity<Void> createVote(@RequestBody VoteTo vote) {
 
-        return voteService.createVote(vote);
+        return voteService.create(vote);
     }
 
     @PutMapping
     ResponseEntity<Void> updateVote(@RequestBody VoteTo vote) {
 
-        return voteService.updateVote(vote);
+        return voteService.update(vote);
     }
 
     @DeleteMapping
     ResponseEntity<Void> deleteVote(@RequestBody VoteTo vote) {
 
-        return voteService.deleteVote(vote);
+        return voteService.delete(vote);
     }
 }

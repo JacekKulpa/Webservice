@@ -3,11 +3,14 @@ package com.example.service;
 import com.example.dto.VoteTo;
 import org.springframework.http.ResponseEntity;
 
-public interface VoteService {
+public interface VoteService extends GenericService<VoteTo> {
 
-    ResponseEntity<Void> createVote(VoteTo vote);
+    @Override
+    ResponseEntity<Void> create(VoteTo object);
 
-    ResponseEntity<Void> updateVote(VoteTo vote);
+    @Override
+    ResponseEntity<Void> update(VoteTo object);
 
-    ResponseEntity<Void> deleteVote(VoteTo vote);
+    @Override
+    ResponseEntity<Void> delete(VoteTo object);
 }

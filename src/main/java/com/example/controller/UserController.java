@@ -23,7 +23,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<Void> createUser(@RequestBody UserTo user) {
 
-        return userService.createUser(user);
+        return userService.create(user);
     }
 
     @GetMapping(path = "/{id}")
@@ -47,13 +47,13 @@ public class UserController {
     @PutMapping
     public ResponseEntity<Void> updateUser(@RequestBody UserTo user) {
 
-        return userService.updateUser(user);
+        return userService.update(user);
     }
 
     @DeleteMapping
     public ResponseEntity<Void> deleteUser(@RequestBody UserTo user) {
 
-        return userService.deleteUser(user);
+        return userService.delete(user);
     }
 
 }

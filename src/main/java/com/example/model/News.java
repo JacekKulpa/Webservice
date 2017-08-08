@@ -20,6 +20,7 @@ public class News implements Serializable {
     @Column(name = "id_news")
     private Long id;
     @NotBlank
+    @Column(unique = true)
     private String title;
     @NotBlank
     private String text;
@@ -27,7 +28,7 @@ public class News implements Serializable {
     private Integer result;
     @OneToMany
     @JoinColumn(name = "news_id", referencedColumnName = "id_news")
-    private List<Vote> votes;
+    private List<VoteDetails> votesDetails;
     @NotNull
     @ManyToMany
     @JoinTable(name = "news_categories",

@@ -35,9 +35,6 @@ public class User implements Serializable {
     private UserDetails userDetails;
     @OneToMany
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
-    private List<Vote> votes;
-    @OneToMany
-    @JoinColumn(name = "user_id", referencedColumnName = "id_user")
     private List<News> news;
 
     public Long getId() {
@@ -80,14 +77,6 @@ public class User implements Serializable {
         this.userDetails = userDetails;
     }
 
-    public List<Vote> getVotes() {
-        return votes;
-    }
-
-    public void setVotes(List<Vote> votes) {
-        this.votes = votes;
-    }
-
     public List<News> getNews() {
         return news;
     }
@@ -108,7 +97,6 @@ public class User implements Serializable {
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (email != null ? !email.equals(user.email) : user.email != null) return false;
         if (userDetails != null ? !userDetails.equals(user.userDetails) : user.userDetails != null) return false;
-        if (votes != null ? !votes.equals(user.votes) : user.votes != null) return false;
         return news != null ? news.equals(user.news) : user.news == null;
     }
 
@@ -119,7 +107,6 @@ public class User implements Serializable {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (userDetails != null ? userDetails.hashCode() : 0);
-        result = 31 * result + (votes != null ? votes.hashCode() : 0);
         result = 31 * result + (news != null ? news.hashCode() : 0);
         return result;
     }
@@ -127,6 +114,6 @@ public class User implements Serializable {
     @Override
     public String toString() {
 
-        return String.format("User{id=%d, login=%s, password=%s, email=%s, userDetails=%s, votes=%s, news=%s}", id, login, password, email, userDetails, votes, news);
+        return String.format("User{id=%d, login=%s, password=%s, email=%s, userDetails=%s, news=%s}", id, login, password, email, userDetails, news);
     }
 }
