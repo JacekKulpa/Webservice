@@ -21,7 +21,6 @@ public class UserTo {
     private String email;
     @NotNull
     private UserDetailsTo userDetails;
-    private List<VoteTo> votes;
     private List<NewsTo> news;
 
     public Long getId() {
@@ -64,14 +63,6 @@ public class UserTo {
         this.userDetails = userDetails;
     }
 
-    public List<VoteTo> getVotes() {
-        return votes;
-    }
-
-    public void setVotes(List<VoteTo> votes) {
-        this.votes = votes;
-    }
-
     public List<NewsTo> getNews() {
         return news;
     }
@@ -92,7 +83,6 @@ public class UserTo {
         if (password != null ? !password.equals(userTo.password) : userTo.password != null) return false;
         if (email != null ? !email.equals(userTo.email) : userTo.email != null) return false;
         if (userDetails != null ? !userDetails.equals(userTo.userDetails) : userTo.userDetails != null) return false;
-        if (votes != null ? !votes.equals(userTo.votes) : userTo.votes != null) return false;
         return news != null ? news.equals(userTo.news) : userTo.news == null;
     }
 
@@ -103,7 +93,6 @@ public class UserTo {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (userDetails != null ? userDetails.hashCode() : 0);
-        result = 31 * result + (votes != null ? votes.hashCode() : 0);
         result = 31 * result + (news != null ? news.hashCode() : 0);
         return result;
     }
@@ -111,6 +100,6 @@ public class UserTo {
     @Override
     public String toString() {
 
-        return String.format("UserTo{id=%d, login=%s, password=%s, email=%s, userDetails=%s, votes=%s, news=%s", id, login, password, email, userDetails, votes, news);
+        return String.format("UserTo{id=%d, login=%s, password=%s, email=%s, userDetails=%s, news=%s", id, login, password, email, userDetails, news);
     }
 }

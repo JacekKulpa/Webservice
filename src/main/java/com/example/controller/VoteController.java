@@ -19,13 +19,13 @@ public class VoteController {
     }
 
     @PostMapping
-    ResponseEntity<Void> createVote(@RequestBody VoteTo vote) {
+    ResponseEntity<VoteTo> createVote(@RequestBody VoteTo vote) {
 
         return voteService.create(vote);
     }
 
     @PutMapping
-    ResponseEntity<Void> updateVote(@RequestBody VoteTo vote) {
+    ResponseEntity<VoteTo> updateVote(@RequestBody VoteTo vote) {
 
         return voteService.update(vote);
     }

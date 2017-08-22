@@ -12,18 +12,18 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private GenericDAO userGenericDAO;
-    private GenericDAO uDetailsGenericDAO;
+    private GenericDAO genericDAO;
+//    private GenericDAO uDetailsGenericDAO;
 
     @Autowired
-    public UserServiceImpl(@DAOQualifier(type = DAOQualifier.QualifierType.USER) GenericDAO userGenericDAO,
-                           @DAOQualifier(type = DAOQualifier.QualifierType.USER_DETAILS) GenericDAO uDetailsGenericDAO) {
-        this.userGenericDAO = userGenericDAO;
-        this.uDetailsGenericDAO = uDetailsGenericDAO;
+    public UserServiceImpl(@DAOQualifier(type = DAOQualifier.QualifierType.USER) GenericDAO genericDAO) {
+//                           @DAOQualifierOQualifier(type = DAOQualifier.QualifierType.USER_DETAILS) GenericDAO uDetailsGenericDAO) {
+        this.genericDAO = genericDAO;
+//        this.uDetailsGenericDAO = uDetailsGenericDAO;
     }
 
     @Override
-    public ResponseEntity<Void> create(UserTo user) {
+    public ResponseEntity<UserTo> create(UserTo user) {
         return null;
     }
 
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseEntity<Void> update(UserTo user) {
+    public ResponseEntity<UserTo> update(UserTo user) {
         return null;
     }
 

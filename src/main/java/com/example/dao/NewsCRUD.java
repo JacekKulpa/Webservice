@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,16 +45,28 @@ public class NewsCRUD implements NewsDAO {
 
     @Override
     public Optional<News> readByTitle(String title) {
-        return null;
+
+        final String readByTitle = "SELECT c FROM News c WHERE c.title = :title";
+
+        TypedQuery<News> query = entityManager.createQuery(readByTitle, News.class);
+
+        query.setParameter("title", title);
+
+        return Optional.ofNullable(query.getSingleResult());
     }
 
     @Override
     public Optional<List<News>> readAll() {
-        return null;
+
+        final String readAll = "SELECT c FROM News c";
+
+        TypedQuery<News> query = entityManager.createQuery(readAll, News.class);
+
+        return Optional.of(query.getResultList());
     }
 
     @Override
-    public Optional<News> update(News object) throws PersistenceException{
+    public Optional<News> update(News object) throws PersistenceException {
 
         News news = entityManager.merge(object);
 

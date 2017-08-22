@@ -6,10 +6,10 @@ import org.springframework.http.ResponseEntity;
 public interface VoteService extends GenericService<VoteTo> {
 
     @Override
-    ResponseEntity<Void> create(VoteTo object);
+    ResponseEntity<VoteTo> create(VoteTo object);
 
     @Override
-    ResponseEntity<Void> update(VoteTo object);
+    ResponseEntity<VoteTo> update(VoteTo object);
 
     @Override
     ResponseEntity<Void> delete(VoteTo object);

@@ -1,24 +1,16 @@
-package com.example.model;
+package com.example.dto;
 
-import javax.persistence.*;
+import com.example.model.User;
+import com.example.model.Vote;
+
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 
-@Entity
-@Table(name = "voteDetails")
-public class VoteDetails implements Serializable {
+public class VoteToDetails {
 
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vote_details")
     private Long id;
     @NotNull
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private Vote vote;
     @NotNull
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private User user;
 
     public Long getId() {
@@ -50,7 +42,7 @@ public class VoteDetails implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        VoteDetails that = (VoteDetails) o;
+        VoteToDetails that = (VoteToDetails) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (vote != null ? !vote.equals(that.vote) : that.vote != null) return false;

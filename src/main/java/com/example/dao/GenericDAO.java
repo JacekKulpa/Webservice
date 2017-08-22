@@ -2,12 +2,13 @@ package com.example.dao;
 
 import javax.persistence.*;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 import java.util.Optional;
 
 public abstract class GenericDAO<T> {
 
     @PersistenceUnit
-    private EntityManagerFactory emf;
+    protected EntityManagerFactory emf;
 
     private EntityManager entityManager;
 
@@ -21,7 +22,7 @@ public abstract class GenericDAO<T> {
                 .getActualTypeArguments()[0];
     }
 
-    Optional<T> create(T object) throws PersistenceException {
+    public Optional<T> create(T object) throws PersistenceException {
 
         entityManager = emf.createEntityManager();
 
@@ -39,7 +40,7 @@ public abstract class GenericDAO<T> {
 
     }
 
-    Optional<T> readById(Long id) {
+    public Optional<T> readById(Long id) {
 
         entityManager = emf.createEntityManager();
 
@@ -51,7 +52,7 @@ public abstract class GenericDAO<T> {
 
     }
 
-    Optional<T> update(T object) throws PersistenceException{
+    public Optional<T> update(T object) throws PersistenceException {
 
         entityManager = emf.createEntityManager();
 
@@ -68,7 +69,7 @@ public abstract class GenericDAO<T> {
         return Optional.of(newObject);
     }
 
-    boolean delete(T object) {
+    public boolean delete(T object) {
 
         entityManager = emf.createEntityManager();
 
@@ -83,5 +84,21 @@ public abstract class GenericDAO<T> {
         entityManager.close();
 
         return true;
+    }
+
+    public Optional<T> readByLogin(String login) {
+
+        TypedQuery<T> namedQuery = emf.createEntityManager().createNamedQuery("User.findByLogin", type);
+
+        namedQuery.setParameter("login", login);
+
+        return Optional.of(namedQuery.getSingleResult());
+    }
+
+    public Optional<List<T>> readAll() {
+
+        TypedQuery<T> namedQuery = emf.createEntityManager().createNamedQuery("User.findAll", type);
+
+        return Optional.of(namedQuery.getResultList());
     }
 }

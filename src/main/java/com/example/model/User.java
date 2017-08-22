@@ -11,6 +11,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "SELECT c FROM User c"),
+        @NamedQuery(name = "User.findByLogin", query = "SELECT c FROM User c WHERE c.login = :login")
+})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,9 +35,9 @@ public class User implements Serializable {
     @Column(unique = true)
     private String email;
     @NotNull
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private UserDetails userDetails;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
     private List<News> news;
 

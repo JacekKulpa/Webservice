@@ -8,7 +8,7 @@ import java.util.List;
 public interface NewsService extends GenericService<NewsTo> {
 
     @Override
-    ResponseEntity<Void> create(NewsTo object);
+    ResponseEntity<NewsTo> create(NewsTo object);
 
     ResponseEntity<NewsTo> getNewsById(Long id);
 
@@ -17,7 +17,7 @@ public interface NewsService extends GenericService<NewsTo> {
     ResponseEntity<List<NewsTo>> getNewsList();
 
     @Override
-    ResponseEntity<Void> update(NewsTo object);
+    ResponseEntity<NewsTo> update(NewsTo object);
 
     @Override
     ResponseEntity<Void> delete(NewsTo object);

@@ -17,12 +17,12 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
-    public ResponseEntity<Void> create(VoteTo vote) {
+    public ResponseEntity<VoteTo> create(VoteTo vote) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Void> update(VoteTo vote) {
+    public ResponseEntity<VoteTo> update(VoteTo vote) {
         return null;
     }
 

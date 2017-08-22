@@ -3,8 +3,10 @@ package com.example.service;
 import com.example.dao.NewsCRUD;
 import com.example.dao.NewsDAO;
 import com.example.dto.NewsTo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Validator;
 
 import java.util.List;
 
@@ -13,12 +15,15 @@ public class NewsServiceImpl implements NewsService {
 
     private NewsDAO newsDAO;
 
+    @Autowired
+    Validator validator;
+
     public NewsServiceImpl() {
         this.newsDAO = new NewsCRUD(this);
     }
 
     @Override
-    public ResponseEntity<Void> create(NewsTo news) {
+    public ResponseEntity<NewsTo> create(NewsTo news) {
         return null;
     }
 
@@ -38,7 +43,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public ResponseEntity<Void> update(NewsTo news) {
+    public ResponseEntity<NewsTo> update(NewsTo news) {
         return null;
     }
 

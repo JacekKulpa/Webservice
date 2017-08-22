@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserService extends GenericService<UserTo> {
 
     @Override
-    ResponseEntity<Void> create(UserTo object);
+    ResponseEntity<UserTo> create(UserTo object);
 
     ResponseEntity<UserTo> getUserById(Long id);
 
@@ -17,7 +17,7 @@ public interface UserService extends GenericService<UserTo> {
     ResponseEntity<List<UserTo>> getUserList();
 
     @Override
-    ResponseEntity<Void> update(UserTo object);
+    ResponseEntity<UserTo> update(UserTo object);
 
     @Override
     ResponseEntity<Void> delete(UserTo object);

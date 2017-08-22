@@ -1,5 +1,6 @@
 package com.example.dto;
 
+import com.example.model.VoteDetails;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -19,5 +20,5 @@ public class NewsTo {
     private Integer result;
     @NotNull
     private List<CategoryTo> categories;
-    private List<VoteTo> votes;
+    private List<VoteDetails> votesDetails;
 }

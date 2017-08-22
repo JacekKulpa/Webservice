@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createUser(@RequestBody UserTo user) {
+    public ResponseEntity<UserTo> createUser(@RequestBody UserTo user) {
 
         return userService.create(user);
     }
@@ -45,7 +45,7 @@ public class UserController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> updateUser(@RequestBody UserTo user) {
+    public ResponseEntity<UserTo> updateUser(@RequestBody UserTo user) {
 
         return userService.update(user);
     }
